@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background: url("img/paubhaji.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .main-img {
+            margin-bottom: 20px;
+            width: 350px;
+            height: 250px;
+
+        }
+
+        .mini-img {
+            margin-right: 20px;
+            width: 250px;
+            height: 250px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: 0 5px 5px black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-img">
+            <img src="img/paubhaji.jpg" class="main" alt="">
+        </div>
+        <div class="row">
+            <div class="mini-img">
+                <img src="img/pizza.jpg" class="mini" alt="">
+            </div>
+            <div class="mini-img">
+                <img src="img/puri.jpg" class="mini" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const mainImg = document.querySelector(".main");
+        const miniImg = document.querySelectorAll(".mini")
+        const container = document.querySelector(".container")
+
+        for (let img of miniImg) {
+            img.addEventListener("click", () => {
+                mainImg.src = img.src
+            })
+        }
+
+        for (let bgimg of miniImg) {
+            bgimg.addEventListener("click", () => {
+                let imgSrc = bgimg.src
+                container.style.background = `url(${imgSrc})`
+                container.style.backgroundPosition = "center";
+                container.style.backgroundRepeat = "no-repeat";
+                container.style.backgroundSize = "cover";
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
